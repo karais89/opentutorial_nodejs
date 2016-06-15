@@ -138,6 +138,63 @@ http://a.com:1337 이라고 주소에 웹서버를 실행하려면 우리의 웹
 
 ## 모듈과 NPM
 
+본 수업은 애플리케이션에서 부품으로 사용할 로직인 모듈에 대해서 알아보고 모듈을 편리하게 관리하는 기술인 NPM을 사용하는 기본적인 방법을 알아봅니다.
+
+const = 자바스크립트에 새로 추가된 상수.
+
+모듈이라는게 존재.
+
+모듈 = 부품
+
+모듈을 가져올때 require를 사용.
+
+NPM = Node Package Manager
+
+HTTP, OS 등의 모듈을 사용했음 (Nodejs가 제공하는 모듈)
+
+Date, String, Array (JavaScript가 제공하는 모듈)
+
+기본적인 기능을 토대로 해서 엄청나게 다양한 무언가를 만들 수 있음.
+
+타인의 모듈을 사용하는 방법. NPM
+
+NPM = Node계의 앱스토어
+
+NPM 역활
+* 설치
+* 삭제
+* 업그레이드
+* 의존성관리
+
+[NPM사이트](https://www.npmjs.com)
+
+[uglify-js](https://www.npmjs.com/package/uglify-js)
+
+g를 붙이면 전역으로 독립적인 소프트웨어로 동작
+
+g를 안붙이면 현재 프로젝트의 부품으로 사용.
+
+사용법
+* uglifyjs pretty.js
+* uglifyjs pretty.js -m
+* uglifyjs pretty.js -o pretty.min.js -m
+
+[underscore](https://www.npmjs.com/package/underscore)
+
+underscore를 우리껄로 가져오려고 함.
+
+우리것도 패키지이므로 npm 상에서 현재의 디렉토리를 패키지로 지정해야됨(npm init)
+
+npm init은 package.json을 만들어줌.
+
+npm install underscore
+
+npm install underscore --save = 온전하게 포함. 
+
+cat package.json으로 내용을 표시하면 depenencies가 추가됨.
+
+depenencies가 있으면 언제든지 여기 있는 모듈을 쉽게 가져올 수 있음.
+
 ## 콜백(callback) 함수
 
 ## 동기와 비동기 프로그래밍
