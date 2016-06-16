@@ -221,6 +221,12 @@ nodejs는 비동기적으로 어떤일을 처리한다가 nodejs의 철학이고
 
 ## Express-도입
 
+이렇게 하는건 편하긴한데.. 더 편한 방법이 있음.
+
+프레임워크.. korea도 있음.
+
+[Express](http://expressjs.com)
+
 ## Express-설치
 
 ## Express-간단한 웹에플리케이션 만들기
