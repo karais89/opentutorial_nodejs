@@ -235,7 +235,19 @@ http://expressjs.com/ko/starter/installing.html
 
 ## Express-간단한 웹에플리케이션 만들기
 
+메뉴얼을 자주 바야됨.
 
+HelloWorld
+
+http://expressjs.com/ko/starter/hello-world.html
+
+app.js 같은 파일은 익스프레스에서 권장하는 메인 애플리케이션 이름
+
+get이라는 메서드를 라우터라고 함. (라우팅 = 길을찾는다)
+
+Routing (사용자, Router, Controller)
+
+사용자의 요청과 controller을 중계해주는 역활
 
 ## 연결성
 
