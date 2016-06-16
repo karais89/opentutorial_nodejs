@@ -229,7 +229,13 @@ nodejs는 비동기적으로 어떤일을 처리한다가 nodejs의 철학이고
 
 ## Express-설치
 
+홈페이지에 시작-설치하기에 보면 설치방법이 있음.
+
+http://expressjs.com/ko/starter/installing.html
+
 ## Express-간단한 웹에플리케이션 만들기
+
+
 
 ## 연결성
 
