@@ -282,6 +282,14 @@ JavaScript, NPM, Router은 정말 중요하다.
 
 ## Express-정적파일을 서비스하는 법
 
+프로그래밍 적으로 만든 정보 = 동적정보
+
+사람이 만든게 언제나 똑같이 보이는것 = 정적정보
+
+http://expressjs.com/ko/starter/static-files.html
+
+app.use(express.static('public'));
+
 ## Express-웹페이지를 표현하는 방법
 
 ## Express-템플릿 엔진 (Jade)
