@@ -315,3 +315,28 @@ app.use(express.static('public'));
 동적인것과 정적인것의 장점을 합친것 = 템플릿엔진.
 
 ## Express-템플릿 엔진 (Jade)
+
+템플릿 엔진이란?
+
+이것만으로도 독립적인 주제로 다룰 정도로 깊이가 있음.
+
+개략적인 느낌만 전달. 
+
+http://expressjs.com/ko/guide/using-template-engines.html
+
+[jade](http://jade-lang.com)
+
+jade 설정
+
+  app.set('view engine', 'jade');
+  app.set('views', './views');
+
+그냥 jade를 하면 코드가 보기 이쁘지 않음.
+
+이쁘게 출력하려면..?? 검색 jade express code pretty
+
+  if (app.get('env') === 'development') {
+    app.locals.pretty = true;
+  }
+
+jade에서 자바스크립트 문법을 사용할때 -를 앞에 붙이면 됨.
