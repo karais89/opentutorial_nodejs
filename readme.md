@@ -390,9 +390,11 @@ post 우편물을 보낸다. 어떤 정보를 전달한다. 사용자의 정보�
 글을 작성하면 서버로 글을 전송하거나 사용자의 정보를 서버로 전송할때. 그게 바로 post
 
 post 방식의 body 사용하려면 body-parser 모듈이 필요(미들웨어)
-  
-  var bodyParser = require('body-parser')
-  app.use(bodyParser.urlencoded({ extended: false }));
+
+```  
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }));
+```
 
 언제 post를 쓰고 get을 쓸까? 정보에 대한 주소를 나타낼때는 url에 모든 정보가 있어야됨.
 
