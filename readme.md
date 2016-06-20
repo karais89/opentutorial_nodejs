@@ -403,3 +403,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 하지만 본질적으로 get,post는 둘다 불안정한 기술임. https등을 사용해야됨(ssl)
 
 굉장히 큰 정보의 경우 get 방식은 정보를 버릴 수 도 있음. 전송할 데이터가 많으면 post
+
+## 팁-Nodejs를 자동으로 재시작
+
+여러분이 코드를 바꾸면 node가 알아서 감지를 못해서 껏다 켜야됬음
+
+[supervisor](https://www.npmjs.com/package/supervisor)
+
+설치 
+
+npm install supervisor -g
+
+실행
+
+supervisor app.js
+
+세이브를 하면 자동으로 꺼졌다 켜짐. 이런 기능을 와치라고 함.
+
+만약 처음부터 supervisor를 가르쳐줬으면 더 편했겠지만 편하단 느낌을 못받았을듯. 원래 그런거라 생각하니까.
+
+하지만 우리가 supervisor없이 애플리케이션을 동작하니까 귀찮은거다.. 귀찮음을 충분히 느꼈을때 이 도구를 내미니 굉장히 행복하다.
+
+다른 것들도 마찬가지다. 아직 자신의 삶의 맥락에서 일의 맥락에서 필요하지 않은 도구를 처음부터 다루는건 그 도구와 멀어질 수도 있을 것 같다.
