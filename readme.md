@@ -372,3 +372,32 @@ http://localhost:3000/topic?id=1&name=egoing
 https://en.wikipedia.org/wiki/Semantic_URL
 
 최근에 현대적인 애플리케이션은 이런식의 url형식을 띔
+
+## Express-POST 방식을 이용한 정보의 전달
+
+GET vs POST 
+
+post방식을 배울 예정.
+
+애플리케이션을 접속함. 사용자의 요청을 애플리케이션이 응답해줌.
+
+기본적으로 웹브라우저에 주소를 입력해서 정보를 가져오는건 get 방식.
+
+쿼리스트링을 줘도 get 방식임. get 방식은 우리가 어떤 정보를 서버에 요청해서 가져오는 것
+
+post 우편물을 보낸다. 어떤 정보를 전달한다. 사용자의 정보를 서버로 전달하는 기능도 있음.
+
+글을 작성하면 서버로 글을 전송하거나 사용자의 정보를 서버로 전송할때. 그게 바로 post
+
+post 방식의 body 사용하려면 body-parser 모듈이 필요(미들웨어)
+  
+  var bodyParser = require('body-parser')
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+언제 post를 쓰고 get을 쓸까? 정보에 대한 주소를 나타낼때는 url에 모든 정보가 있어야됨.
+
+아이디 로그인등의 url상에 정보가 표시되지 않는 방식인 post 방식을 써야됨.
+
+하지만 본질적으로 get,post는 둘다 불안정한 기술임. https등을 사용해야됨(ssl)
+
+굉장히 큰 정보의 경우 get 방식은 정보를 버릴 수 도 있음. 전송할 데이터가 많으면 post
