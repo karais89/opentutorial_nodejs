@@ -1,13 +1,23 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
-var upload = multer({ dest: 'uploads/' })
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {    
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({ storage: storage })
 var fs = require('fs');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.locals.pretty = true;
+app.use('/user', express.static('uploads'));
 app.set('views', './views_file');
 app.set('view engine', 'jade');
-app.locals.pretty = true;
 app.get('/upload', function(req, res) {
     res.render('upload');
 });

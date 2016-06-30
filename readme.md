@@ -473,3 +473,9 @@ supervisor app.js
 * 파일
 
 [multer](https://github.com/expressjs/multer)
+
+### multer 심화
+
+메뉴얼에 나와있는데로 하면 됨. 사용 설명서를 보고 사용하면 됨.
+
+사용자로 하여금 높은 자유도를 주기 위해 콜백을 사용 함.
