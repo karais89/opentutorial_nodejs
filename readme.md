@@ -508,7 +508,7 @@ NoSQL이라는 운동이 일어남. 과거에는 굉장히 어려운 일이었�
 
 ### Orientdb 소개 및 기본 사용법
 
-### Orientdb로 웹에플리케이션 제작 1 : 소개
+#### Orientdb로 웹에플리케이션 제작 1 : 소개
 
 [Orientdb](http://orientdb.com/orientdb/)
 
@@ -524,3 +524,13 @@ Orientdb 특징
 * NoSQL 이지만 SQL을 사용할 수 있음
 * Multi-Master Replication(여러개의 쓰기 작업을 두는 데이터베이스를 둘 수 있다.)
 * Sharding(자동으로 샤딩 해줌)
+
+#### Orientdb로 웹에플리케이션 제작 2 : 설치
+
+기본적으로 자바가 필요함 자바 jdk 설치후
+
+orientdb 다운받고 압출풀고 적당한 곳에 두자.
+
+localhost:2480에 접속하자. 기본적으로 제공하는 관리자 화면임.
+
+o2 데이터베이스 생성.
