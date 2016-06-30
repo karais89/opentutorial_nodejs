@@ -7,6 +7,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('views', './views_file');
 app.set('view engine', 'jade');
 app.locals.pretty = true;
+app.get('/upload', function(req, res) {
+    res.render('upload');
+});
+app.post('/upload', function(req, res) {
+    res.send('Uploaded');
+});
 app.get('/topic/new', function(req, res) {
     fs.readdir('data', function(err, files) {
         if(err) {
