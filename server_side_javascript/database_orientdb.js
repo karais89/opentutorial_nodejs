@@ -29,4 +29,30 @@ var params = {
 db.query(sql, params).then(function (results) {
     console.log(results);
 });
+
+// INSERT
+
+var sql = "INSERT INTO topic (title, description) VALUES (:title, :desc)";
+db.query(sql, {
+    params : {
+        title:'Express',
+        desc:'Express is framework for web'
+    }
+}).then(function (results) {
+    console.log(results);
+});
+
+// UPDATE
+
+var sql = "UPDATE topic SET title=:title WHERE @rid=:rid";
+db.query(sql, {params:{title:'Expressjs', rid:'#23:0'}}).then(function(results) {
+    console.log(results);
+});
+
+// DELETE
+
+var sql = "DELETE FROM topic WHERE @rid=:rid";
+db.query(sql, {params:{rid:'#23:0'}}).then(function(results) {
+    console.log(results);
+});
 */
