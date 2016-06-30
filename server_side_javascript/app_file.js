@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var upload = multer({ dest: 'uploads/' })
 var fs = require('fs');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -10,8 +11,9 @@ app.locals.pretty = true;
 app.get('/upload', function(req, res) {
     res.render('upload');
 });
-app.post('/upload', function(req, res) {
-    res.send('Uploaded');
+app.post('/upload', upload.single('userfile'), function(req, res) {
+    console.log(req.file);
+    res.send('Uploaded : ' + req.file.filename);
 });
 app.get('/topic/new', function(req, res) {
     fs.readdir('data', function(err, files) {
