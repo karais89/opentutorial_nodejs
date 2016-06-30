@@ -544,3 +544,7 @@ o2 데이터베이스 생성.
 Mandatory 체크를 하면 반드시 이정보는 사용자가 입력을 해야됨.
 
 구조를 정하면 스키마 풀.. 구조가 없으면 스키마 리스 혹은 조합해서.. 스키마 믹스.
+
+#### Orientdb로 웹에플리케이션 제작 4 : orientjs 설정
+
+[orientdb](https://github.com/codemix/oriento)
