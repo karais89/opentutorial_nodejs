@@ -548,3 +548,12 @@ Mandatory 체크를 하면 반드시 이정보는 사용자가 입력을 해야�
 #### Orientdb로 웹에플리케이션 제작 4 : orientjs 설정
 
 [orientdb](https://github.com/codemix/oriento)
+
+#### Orientdb로 웹에플리케이션 제작 5 : SELECT
+
+데이터의 입력과 출력
+
+* 추가
+* 수정
+* 삭제
+* 읽기
