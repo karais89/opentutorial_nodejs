@@ -579,5 +579,12 @@ get('topic/:id/delete') : delete.jade
  post('topic/:id/delete');
  get('topic/');
 
+#### Orientdb로 웹애플리케이션 제작 8 : 읽기 1 - 글목록
 
-
+orientdb는 뭔가 웹과 잘 안맞음 #과 같은 특수기호때문에..
+이스케이핑이 필요.. encodeURIComponent
+json 객체에 접근할때도 .이 아닌 대괄호를 사용해야되는 경우도 있음.
+```
+topic['@rid'] // @괄호 때문에 .접근 불가.
+topic.title // == topic['title]
+```
