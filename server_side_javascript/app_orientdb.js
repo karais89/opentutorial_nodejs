@@ -32,13 +32,30 @@ app.post('/upload', upload.single('userfile'), function(req, res) {
     console.log(req.file);
     res.send('Uploaded : ' + req.file.filename);
 });
-app.get('/topic/new', function(req, res) {
-    fs.readdir('data', function(err, files) {
-        if(err) {
-            console.log(err);
+app.get('/topic/add', function(req, res) {
+    var sql = 'SELECT FROM topic';
+    db.query(sql).then(function(topics) {
+    // fs.readdir('data', function(err, files) {
+        if(topics.length == 0) {
+            console.log('There is no record');
             res.status(500).send('Internal Server Error');
         }
-        res.render('new', {topics:files});
+        res.render('add', {topics:topics});
+    });
+});
+app.post('/topic/add', function(req, res) {
+    var title = req.body.title;
+    var description = req.body.description;
+    var author = req.body.author;
+    var sql = 'INSERT INTO topic (title, description, author) VALUES (:title, :desc, :author)';
+    db.query(sql, {
+        params:{
+            title:title,
+            desc:description,
+            author:author
+        }    
+    }).then(function(results) {
+        res.redirect('/topic/' + encodeURIComponent(results[0]['@rid']));
     });
 });
 app.get(['/topic', '/topic/:id'], function (req, res) {
@@ -53,39 +70,6 @@ app.get(['/topic', '/topic/:id'], function (req, res) {
         }else {
             res.render('view', {topics:topics});            
         }
-    });
-    /*
-    fs.readdir('data', function(err, files) {
-        if(err) {
-            console.log(err);
-            res.status(500).send('Internal Server Error');
-        }
-        var id = req.params.id;
-        if(id) {
-            // id 값이 있을때
-            fs.readFile('data/' + id, 'utf8', function (err, data) {
-                if(err) {
-                    console.log(err);
-                    res.status(500).send('Internal Server Error');
-                }
-                res.render('view', {topics:files, title:id, description:data});        
-            });
-        }else {
-            // id 값이 없을때
-            res.render('view', {topics:files, title:'Welcome', description:'Hello, Javascript for server'});    
-        }
-    });
-    */
-});
-app.post('/topic', function(req, res) {
-    var title = req.body.title;
-    var description = req.body.description;
-    fs.writeFile('data/' + title, description, function(err) {
-        if(err) {
-            console.log(err);
-            res.status(500).send('Internal Server Error');
-        }
-        res.redirect('/topic/' + title);
     });
 });
 app.listen(3000, function() {
