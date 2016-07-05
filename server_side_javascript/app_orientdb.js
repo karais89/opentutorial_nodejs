@@ -63,7 +63,7 @@ app.get('/topic/:id/edit', function(req, res) {
         });
     });
 });
-app.post('/topic/:id/add', function(req, res) {
+app.post('/topic/:id/edit', function(req, res) {
     var sql = 'UPDATE topic SET title=:t, description=:d, author=:a WHERE @rid=:rid';    
     var id = req.params.id;
     var title = req.body.title;
