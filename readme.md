@@ -651,3 +651,29 @@ mysql을 mariaDB로 바꾸면 한줄의 수정없이 교체 가능. 반대도 �
 mysql의 춘추전국시대가 시작됨. mysql이 하나의 제품에서 어떤 표준으로 넘어가는 과정이 아닌가 싶음.
 
 mysql은 굉장히 뜨거운 DB임.
+
+#### MySQL 설치 - 맥 (OSX)
+
+고민이 됨. 쉬운 방법과 어려운 방법.
+
+일단 쉬운 방법으로 설치..
+
+[bitmami](https://bitnami.com/stack/mamp)
+
+이거 말고도 homebrew를 통해서도 설치할 수 있음.
+
+아니면 공식 홈페이지에서 다운 받는것도 좋은 방법임.
+
+선택해서 하세요. mysql 포트는 3306
+
+맥은 컴퓨터를 끄고 나면 기본적으로 아파치나 mysql이 꺼지므로
+
+컴퓨터를 키면 다시 스타트 해줘야됨. 
+
+/Applications/mampstack-5.6.23-0/ 경로의 manager-osx.app 실행
+
+mysql이 잘 실행되는 지 확인하려면 터미널을 키고
+
+/Applications/mampstack-5.6.23-0/mysql/bin
+
+./mysql -uroot -p 하면됨
