@@ -13,6 +13,8 @@
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "multer": "^1.1.0",
+    "mysql": "^2.11.1",
+    "node-mysql": "^0.4.2",
     "oriento": "^1.2.0",
     "underscore": "^1.8.3"
   }
