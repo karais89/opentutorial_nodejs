@@ -801,3 +801,7 @@ javascript로 mysql을 제어하는 방법을 살펴볼 예정.
 읽기, 쓰기, 등..
 
 insert id 중요함.
+
+#### node-mysql 3 : UPDATE & DELETE
+
+등록된 데이터를 수정하고 삭제하는것을 자바스크립트로 할 예정.
