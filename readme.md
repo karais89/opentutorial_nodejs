@@ -794,3 +794,10 @@ javascript로 mysql을 제어하는 방법을 살펴볼 예정.
 
 [node-mysql이다.](https://github.com/mysqljs/mysql)
 
+#### node-mysql 2 : SELECT & INSERT
+
+가장 기초적인 명령들..
+
+읽기, 쓰기, 등..
+
+insert id 중요함.
