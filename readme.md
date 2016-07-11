@@ -715,3 +715,43 @@ ex) opentutorials.org:3306에 접속하면. 일단 서버에 접속을하고..
 자신의 아이디와 패스워드로 인증을 하고, 데이터베이스를 사용하겠다고 컴퓨터에게 알려주고.
 
 그 데이터베이스에 속한 테이블을 사용함..
+
+#### MYSQL 사용하기
+
+아직은 순수하게 mysql만 사용할 것이다.
+
+mysql에 접속한다 (터미널에서)
+
+./mysql -uroot -p
+./mysql -hlocalhost -uroot -p
+./mysql -hlocalhost -P3306 -uroot -p
+
+title       | description     |author
+------------|-----------------|-------------
+JavaScript  | JavaScript is.. | egoing
+
+**데이터베이스 생성**
+CREATE DATABASE o2 CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+**데이터베이스 사용**
+use o2;
+
+**테이블생성**
+
+CREATE TABLE `topic` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `author` varchar(30) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+데이터베이스는 처리 속도가 굉장히 중요함. 그래서 콘솔에 시간을 보여주는 것임.
+
+**데이터 삽입**
+INSERT INTO topic (title, description, author) VALUES('JavaScript','Computer language for web.', 'egoing');
+INSERT INTO topic (title, description, author) VALUES('NPM','Package manager', 'leezche');
+
+auto_increment를 설정하면 알아서 숫자를 부여함.
+
+auto_increment를 설정한 id는 식별자의 역할을 함. 식별자는 중요하다.
