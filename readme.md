@@ -731,13 +731,17 @@ title       | description     |author
 JavaScript  | JavaScript is.. | egoing
 
 **데이터베이스 생성**
+```
 CREATE DATABASE o2 CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
 
 **데이터베이스 사용**
+```
 use o2;
+```
 
 **테이블생성**
-
+```
 CREATE TABLE `topic` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
@@ -745,13 +749,35 @@ CREATE TABLE `topic` (
   `author` varchar(30) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
 데이터베이스는 처리 속도가 굉장히 중요함. 그래서 콘솔에 시간을 보여주는 것임.
 
 **데이터 삽입**
+```
 INSERT INTO topic (title, description, author) VALUES('JavaScript','Computer language for web.', 'egoing');
 INSERT INTO topic (title, description, author) VALUES('NPM','Package manager', 'leezche');
+```
 
 auto_increment를 설정하면 알아서 숫자를 부여함.
 
 auto_increment를 설정한 id는 식별자의 역할을 함. 식별자는 중요하다.
+
+#### MySQL - UPDATE & DELETE
+
+데이터를 변경하는 것.. 수정 삭제
+
+**데이터 수정**
+```
+UPDATE topic SET title='npm' WHERE id=2;
+```
+UPDATE에서 where 를 깜박하면 인생이 바뀜. (망함)
+
+sql은 굉장히 위험한 일을 함.. 서버 쪽으로 오면 언제나 겸손해야되고 경건 해야 됨.
+
+**데이터 삭제**
+```
+DELETE FROM topic WHERE id=2;
+```
+
+까먹어도 됨.. 검색하면 됨. 자주 쓰면 알아서 외워짐.
