@@ -805,3 +805,23 @@ insert id 중요함.
 #### node-mysql 3 : UPDATE & DELETE
 
 등록된 데이터를 수정하고 삭제하는것을 자바스크립트로 할 예정.
+
+### MySQL로 웹에플리케이션 구현
+
+#### 글 목록
+
+get('topic/') : view.jade
+get('topic/:id') : view.jade
+get('topic/add') : add.jade
+  post('topic/add')
+  get('topic/:id')
+get('topic/:id/edit') : edit.jade
+  post('topic/:id/edit')
+  get('topic/:id')
+get('topic/:id/delete') : delete.jade
+  post('topic/:id/delete')
+  get('topic/')
+
+파일 -> mysql 변경
+
+그리고 선택된 글에 대한 수정과 삭제 작업을 추가 할 예정
