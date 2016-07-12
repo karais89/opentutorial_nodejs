@@ -825,3 +825,5 @@ get('topic/:id/delete') : delete.jade
 파일 -> mysql 변경
 
 그리고 선택된 글에 대한 수정과 삭제 작업을 추가 할 예정
+
+#### 글 상세 보기 구현
