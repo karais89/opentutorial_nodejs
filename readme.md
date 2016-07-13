@@ -833,3 +833,5 @@ get('topic/:id/delete') : delete.jade
 #### 글 편집 기능 구현 1
 
 #### 글 편집 기능 구현 2
+
+### 글 삭제 구현
