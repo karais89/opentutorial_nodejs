@@ -887,3 +887,11 @@ cookie를 사용하려면 모듈을 깔아야됨.
 [cookie-parser](https://www.npmjs.com/package/cookie-parser)
 
 쿠키의 갑은 같은 url에서만 유효함
+
+### cookie 2
+
+#### Shopping cart 1
+
+쿠키를 이용해 조금 더 현실적인 애플리케이션을 만들거임.
+
+카트 기능 같은 경우 대부분 쿠키를 이용함.
