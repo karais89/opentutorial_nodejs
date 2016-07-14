@@ -898,3 +898,6 @@ cookie를 사용하려면 모듈을 깔아야됨.
 
 #### Shopping cart 2
 
+#### Shopping cart 3
+
+쿠키는 서버가 사용자의 웹 브라우저에게 CRUD 하는 것이다.
