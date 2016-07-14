@@ -835,3 +835,27 @@ get('topic/:id/delete') : delete.jade
 #### 글 편집 기능 구현 2
 
 ### 글 삭제 구현
+
+### http
+
+Hypertext Transfor Protocole
+
+time berners-lee 
+
+Web Browser와 Web Server가 서로 데이터를 주고 받음.
+
+웹브라우저는 웹서버에게 어떤정보를 요청(request)
+
+웹서버는 요청에 따른 응답(Response)
+
+웹브라우저와 웹서버는 http라는 통신방법을 사용해 정보를 주고 받음.
+
+request header와 response header와 같은 눈에 보이지 않지만 밑바닥에서 저 아래에서 
+
+풍부한 정보를 주고 받음. 그리고 이러한 프로토콜을 몰라도 웹 애플리케이션을 만들 수 있지만.
+
+가끔씩 생기는 문제가 있는데.. 그 문제가 해결이 잘 안되는 경우가 있음. 
+
+웹 서버에서 제공하는 어떤 프로토콜의 헤더를 보고 문제를 해결 할 수 있어야됨.
+
+이 순간이 마법이 기술이 되는 순간.
