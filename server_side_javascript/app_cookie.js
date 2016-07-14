@@ -16,10 +16,28 @@ app.get('/products', function(req, res) {
         </li>
         `;
     }
-    res.send(`<h1>Products</h1><ul>${output}</ul><a href="/Cart">Cart</a>`);
+    res.send(`<h1>Products</h1><ul>${output}</ul><a href="/cart">Cart</a>`);
 });
-
-
+/*
+cart = {
+    1:2,
+    2:1   
+};
+*/
+app.get('/cart/:id', function(req, res) {
+    var id = req.params.id;
+    if(req.cookies.cart) {
+        var cart = req.cookies.cart;
+    }else {
+        var cart = {};    
+    }
+    if(!cart[id]) {
+        cart[id] = 0;    
+    }
+    cart[id] = parseInt(cart[id])+1;    
+    res.cookie('cart', cart);
+    res.redirect('/cart');
+});
 app.get('/count', function(req, res) {
     if(req.cookies.count) {
         var count = parseInt(req.cookies.count);
