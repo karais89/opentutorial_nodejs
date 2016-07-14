@@ -1032,3 +1032,20 @@ npm install session-file-store --save
 그디렉토리의 이름은 sessions임 ->실행하면 실제로 생성되는지 확인
 
 이제 애플리케이션을 껏다 켜도 상관없음..
+
+#### Session 9 : Session store - mysql
+
+express session store mysql
+
+[express-mysql-session](https://www.npmjs.com/package/express-mysql-session)
+
+애플리케이션이 실행되면 sessions라는 테이블을 생성시켜주고.. 그 테이블에 세션 정보를 저장하게 됨.
+
+애플리케이션을 다시 시작해도 제대로 실행이됨. 휘발성이 아니고 데이터베이스에 저장되기 때문에.
+
+세션을 저장할때 저장이 끝나기도 전에 리다이렉션을 하면 저장이 안될수도있음.
+
+그래서 세션이 저장될때까지 기달려주는 것을 처리 해줘야됨.
+```
+req.session.save(function()
+```
