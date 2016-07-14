@@ -1049,3 +1049,17 @@ express session store mysql
 ```
 req.session.save(function()
 ```
+
+#### Session 9 : Session store - orientdb
+
+[cpmmect-oriento](https://www.npmjs.com/package/connect-oriento)
+
+Session이라는 테이블이 생김 애플리케이션을 실행하면서 생성됨.
+
+로그인 하는 부분에서. 리다이렉션을 해서 웰컴으로 보내주는데..
+
+세션 데이터가 저장되기 전에 리다이렉션이 됨..
+
+세션 객체는 save라는 함수가 있고 그 save함수에 콜백을 주면.. 세션이 스토어에 저장된 후에
+
+콜백이 호출됨.. 그리고 리다이렉션 하면됨.
