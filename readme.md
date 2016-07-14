@@ -961,3 +961,16 @@ connect.sid가 같으면 같은 사용자로 간주됨.
 사용자의 컴퓨터 자체에 쿠키값이 저장되기 않기 때문에 훨씬 더 안전함. 세션 아이디 자체에는 의미있는 데이터가 없음.
 
 물론 세션 아이디가 탈취되면 위험함..
+
+#### Session 3 : Counter Application
+```
+npm install express-session --save
+```
+
+[express-session](https://github.com/expressjs/session)
+
+express-session은 기본적으로 메모리에 저장함. 그래서 애플리케이션을 껏다 키면 세션 정보는 날라감.
+
+그래서 express-session이 기본적으로 제공하는 메모리에 정보를 저장하는 컨셉은 개발용으로는 편리하지만 실제 서비스할때는
+
+데이터베이스에다가 세션 데이터를 저장해야됨.
