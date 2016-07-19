@@ -1176,3 +1176,34 @@ npm install sha256 --save
 ```
 
 사용자의 해쉬값은 완전히 다른 값을 가지므로 한사람이 털려도 한사람이 털리지는 않는다.
+
+#### Security Password 3 : PBKDF2
+
+단방향 해쉬. 원래의 방식으로 다시는 복원할 수 없는 암호화 방법을 살펴봄.
+
+그리고 salt를 통해서 원래의 값이 무엇인지 좀더 알아보기 힘든 방법을 살펴봄.
+
+키스트레이칭?? 암호화 한걸 한번더 하고 한번더 하고 한번 더하는 암호화 방법.
+
+이런것들을 우리가 처리하기가 상당히 어려운 일이므로 이런것들을 제대로 해줄 수 있는 함수가 몇가지가 있음.
+
+그 것들중에 하나인 것이 pbkdf2임. 이런 함수를 통해 방금 말한 기법들을 잘 할 수 있게 해주는 함수.
+
+[pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)
+
+검색어 : nodejs pbkdf2 password npm
+
+[pbkdf2-password](https://www.npmjs.com/package/pbkdf2-password)
+
+```
+var bkfd2Password = require("pbkdf2-password");
+var hasher = bkfd2Password();
+ 
+hasher({password:'111'}, function(err, pass, salt, hash) {
+  console.log(err, pass, salt, hash);
+});
+```
+
+암호화를 할때마다 다른 값이 나옴.
+
+요기서 나온 값은 어마어마하고 이 값이 원래 어떤값인지 추정하기는 힘들다.
