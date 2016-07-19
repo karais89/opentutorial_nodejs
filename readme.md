@@ -1255,3 +1255,17 @@ strategies 보면 여러가지 전략등을 볼 수 있다. facebook이면 페�
 ```
 npm install --save passport-local
 ```
+
+#### Route
+
+패스포트는 공통적인 체계가 있음.
+
+패스포트의 전략 중 로컬이라는 전략을 쓸 예정.
+
+Form을 보자..
+
+username과 password는 반드시 이 변수명으로 해줘야됨.
+
+passport의 use에 전략을 등록 해줘야됨.
+
+done의 세번째 인자(메시지)는 라우터의 failureflash와 관련 있음.
