@@ -1177,7 +1177,7 @@ npm install sha256 --save
 
 사용자의 해쉬값은 완전히 다른 값을 가지므로 한사람이 털려도 한사람이 털리지는 않는다.
 
-#### Security Password 3 : PBKDF2
+#### Security Password 4 : PBKDF2
 
 단방향 해쉬. 원래의 방식으로 다시는 복원할 수 없는 암호화 방법을 살펴봄.
 
@@ -1207,3 +1207,8 @@ hasher({password:'111'}, function(err, pass, salt, hash) {
 암호화를 할때마다 다른 값이 나옴.
 
 요기서 나온 값은 어마어마하고 이 값이 원래 어떤값인지 추정하기는 힘들다.
+
+#### Security Password 5 : PBKDF2
+
+암호화 함수를 통해서 사용자의 비밀번호를 암호화 햇음.
+

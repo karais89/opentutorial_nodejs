@@ -85,10 +85,16 @@ app.post('/auth/login', function(req, res) {
     var pwd = req.body.password;
     for(var i=0; i<users.length; i++) {
         var user = users[i];
-        if(uname == user.username && sha256(pwd+user.salt) == user.password) {
-            req.session.displayName = user.displayName;
-            return req.session.save(function() {
-                res.redirect('/welcome');        
+        if(uname == user.username) {
+            return hasher({password:pwd, salt:user.salt}, function(err, pass, salt, hash) {
+                if(hash == user.password) {
+                    req.session.displayName = user.displayName;
+                    req.session.save(function() {
+                        res.redirect('/welcome'); 
+                    });                   
+                }else {
+                    res.send('Who are you? <a href="/auth/login">login</a>'); 
+                }
             });
         }
     }    
