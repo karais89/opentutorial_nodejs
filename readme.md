@@ -1269,3 +1269,35 @@ username과 password는 반드시 이 변수명으로 해줘야됨.
 passport의 use에 전략을 등록 해줘야됨.
 
 done의 세번째 인자(메시지)는 라우터의 failureflash와 관련 있음.
+
+#### Serialize
+
+```
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+```
+
+콜백함수가 실행되도록 약속이 되있음.
+
+자연의 법칙이 아니고 인간들의 약속일 뿐이다.
+
+serializeUser에 done의 두번째 인자에 식별자를 넣어주면 됨.
+
+우선 로그인시 실행 순서
+
+1. LocalStrategy가 실행
+2. serializeUser 실행
+3. deserializeUser 실행
+
+이제 웹페이지를 리로드 할때 deserializeUser가 호출됨.
+
+serializeUser를 할때 두번째 인자로 준 값이 세션에 저장이 되고
+
+다시 웹사이트에 접속할때 deserialzieuser가 호출되도록 약속되있고 세션에 저장되있는 인자가 첫번째 인자로 들어오기로 약속되 있기 때문에...
