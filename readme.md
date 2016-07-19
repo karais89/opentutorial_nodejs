@@ -1212,3 +1212,6 @@ hasher({password:'111'}, function(err, pass, salt, hash) {
 
 암호화 함수를 통해서 사용자의 비밀번호를 암호화 햇음.
 
+#### Security Password 6 : register
+
+사용자 등록을 할때 pbkdf2 방식으로 사용자의 비번을 저장하는 방법을 알아볼것임.
