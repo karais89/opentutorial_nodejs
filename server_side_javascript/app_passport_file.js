@@ -6,6 +6,7 @@ var bkfd2Password = require("pbkdf2-password");
 var hasher = bkfd2Password();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({

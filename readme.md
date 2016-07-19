@@ -1335,3 +1335,23 @@ serializeUser를 할때 두번째 인자로 준 값이 세션에 저장이 되�
 사용자의 정보를 보관하는 것은 굉장히 어려운 일이다. 사용자의 정보를 보관할 필요가 없다. (간단한 식별자만을 보관)
 
 단점? 왠지 다른 서비스에 종속되는 듯한 느낌?
+
+#### Facebook (페이스북 연동)
+
+http://passportjs.org/docs
+
+패스포트를 이용한 타사인증
+
+[passport-facebook] (https://github.com/jaredhanson/passport-facebook)
+
+페이스북에서 타사인증을 하려면 페이스북 앱이란 것을 만들어야 됨.
+
+facebook developer 검색
+
+개발자 등록
+
+```
+nm install passport-facebook --save
+```
+
+여러개의 타사인증 시스템을 동일한 형태의 코드로 관리해주는.. 진정한 패스포트의 가치.
