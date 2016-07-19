@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var bodyParser = require('body-parser');
+var md5 = require('md5');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -21,7 +22,7 @@ app.get('/count', function(req, res) {
 var users = [
     {
         username:'egoing',
-        password:'111',
+        password:'698d51a19d8a121ce581499d7b701668',
         displayName:'Egoing'
     }
 ];
@@ -82,7 +83,7 @@ app.post('/auth/login', function(req, res) {
     var pwd = req.body.password;
     for(var i=0; i<users.length; i++) {
         var user = users[i];
-        if(uname == user.username && pwd == user.password) {
+        if(uname == user.username && md5(pwd) == user.password) {
             req.session.displayName = user.displayName;
             return req.session.save(function() {
                 res.redirect('/welcome');        
