@@ -1305,3 +1305,17 @@ serializeUser를 할때 두번째 인자로 준 값이 세션에 저장이 되�
 #### logout(로그아웃)
 
 패스포트는 원래 익스프레스가 가지고 있지 않은 user를 만들어 줌.
+
+#### review(복습)
+
+패스포트를 적용하는것이 꽤 어렵고 복잡하다. 어렵게 느껴지는 것이 자연스럽다.
+
+* 패스포트의 모듈을 가져옴
+* 인증방식(전략)에 따른 모듈을 가져옴 (로컬, 페이스북, 구글 등)
+* 우리의 애플리케이션에 패스포트 등록 app.use(passport.initialize()), app.use(passport.session()) 등..
+* form에서 auth/login으로 패스포트 값을 넘겨주면 패스포트에서 인증을 해주는데..
+* passport.use 를 통해 전략 추가 가능
+* serializeUser, deserializeUser 등 선언
+* serializeUser를 통해 세션에 저장됨.
+* 저장된 세션 데이터로 deserializeUser가 호출. (저장된 사용자를 찾을 수 있음)
+* req.user 의 객체가 패스포트에 의해 추가됨.
