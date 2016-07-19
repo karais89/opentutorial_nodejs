@@ -22,6 +22,7 @@
     "node-mysql": "^0.4.2",
     "oriento": "^1.2.0",
     "session-file-store": "^0.2.0",
+    "sha256": "^0.2.0",
     "underscore": "^1.8.3"
   }
 }
