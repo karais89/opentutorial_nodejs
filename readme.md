@@ -1442,7 +1442,7 @@ profileFields:['id', 'email', 'gender', 'link', 'locale',
 
 
 Name       | Type | Mandatory | Not_Null |
------------|------|-----------|----------|
+-----------|------|:---------:|:--------:|
 authId     |STRING|     O     |    O     |
 username   |STRING|     X     |    X     |
 password   |STRING|     X     |    X     |
@@ -1450,3 +1450,8 @@ salt       |STRING|     X     |    X     |
 displayName|STRING|     O     |    O     |
 
 new index -> authId -> unique 설정.
+
+#### Session store
+
+세션은 파일에서 오리엔트디비로 변경.
+
