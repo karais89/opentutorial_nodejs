@@ -1425,3 +1425,28 @@ profileFields:['id', 'email', 'gender', 'link', 'locale',
 심지어 우리는 비밀번호를 찾는 기능, 이메일 인증도 만들지 않았다.
 
 힘들기 때문에 많은 사람들이 이 부분에서 포기한다. 여러분이 이걸 넘어서면 그만큼 힘을 갖게 되니까 힘드셔도 조금 만 더 힘내자.
+
+### Auth - Orientdb
+
+#### Intro
+
+지금까지 세션은 파일에 저장 사용자의 정보는 메모리에 저장
+
+사용자의 데이터를 데이터베이스에 저장할 것.
+
+이번 시간에는 오리엔트디비로 지금까지 만든 애플리케이션을 전환할 예정.
+
+사용자 테이블을 직접 만들어서 사용하는 방법을 구현할 것임.
+
+오리엔트 디비에 user 클래스를 만듬
+
+
+Name       | Type | Mandatory | Not_Null |
+-----------|------|-----------|----------|
+authId     |STRING|     O     |    O     |
+username   |STRING|     X     |    X     |
+password   |STRING|     X     |    X     |
+salt       |STRING|     X     |    X     |
+displayName|STRING|     O     |    O     |
+
+new index -> authId -> unique 설정.
