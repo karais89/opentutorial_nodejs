@@ -127,6 +127,18 @@ passport.use(new LocalStrategy(
         done(null, false);
     }
 ));
+passport.use(new FacebookStrategy({
+    clientID: '100362483739670',
+    clientSecret: '65b127d947e7ba48e411d79fb68b637b',
+    callbackURL: "/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    // User.findOrCreate(..., function(err, user) {
+    //   if (err) { return done(err); }
+    //   done(null, user);
+    // });
+  }
+));
 app.post(
     '/auth/login', 
     passport.authenticate(
@@ -135,6 +147,22 @@ app.post(
             successRedirect: '/welcome',
             failureRedirect: '/auth/login',
             failureFlash: false 
+        }
+    )
+);
+app.get(
+    '/auth/facebook',
+     passport.authenticate(
+         'facebook'
+     )
+);
+app.get(
+    '/auth/facebook/callback',
+    passport.authenticate(
+        'facebook',
+        {
+            successRedirect: '/welcome',
+            failureRedirect: '/auth/login' 
         }
     )
 );
@@ -152,6 +180,7 @@ app.get('/auth/login', function(req, res) {
             <input type="submit">
         </p>
     </form>
+    <a href="/auth/facebook">facebook</a>
     `;    
     res.send(output);
 });

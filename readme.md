@@ -1355,3 +1355,37 @@ nm install passport-facebook --save
 ```
 
 여러개의 타사인증 시스템을 동일한 형태의 코드로 관리해주는.. 진정한 패스포트의 가치.
+
+#### Route
+
+facebook 전략으로 동작
+
+```
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+passport.use(new FacebookStrategy({
+    clientID: FACEBOOK_APP_ID,
+    clientSecret: FACEBOOK_APP_SECRET,
+    callbackURL: "http://www.example.com/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate(..., function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
+```
+
+callbackURL 
+
+타사인증을 받는건 상당히 보안적으로 위험한 일
+
+여러가지 방법으로 이 서비스가 맞는지 상호간에 검증하는 과정
+
+왜 라우터를 2개 등록해야되는지?
+
