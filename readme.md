@@ -1394,3 +1394,34 @@ facebook 로그인 버튼을 누르면 페이스북 화면이 나오고 확인�
 #### login
 
 profile 정보를 바탕으로 사용자를 추가 히면 됨.
+
+#### facebook permission (페이스북 세부 권한 설정)
+
+한가지 버그가 있었음.
+
+페이스북 로그인 상태에서 애플리케이션을 끄면 계속 무한 로딩 되는 현상.
+
+세션 폴더의 세션을 지워줘야됨.
+
+```
+app.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: 'read_stream' })
+);
+```
+
+이렇게 해도 email 정보가 안나오는데
+
+```
+profileFields:['id', 'email', 'gender', 'link', 'locale',
+'name', 'timezone', 'updated_time', 'verified', 'displayName']
+```
+
+이걸 추가해야 됨
+  
+로컬 전략에서도 사용자의 이메일을 받아야되는 정보다.
+
+상당히 어려운 내용이다.
+
+심지어 우리는 비밀번호를 찾는 기능, 이메일 인증도 만들지 않았다.
+
+힘들기 때문에 많은 사람들이 이 부분에서 포기한다. 여러분이 이걸 넘어서면 그만큼 힘을 갖게 되니까 힘드셔도 조금 만 더 힘내자.
