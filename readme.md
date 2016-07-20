@@ -1465,3 +1465,5 @@ new index -> authId -> unique 설정.
 
 #### login
 
+#### federation auth (타사인증)
+
