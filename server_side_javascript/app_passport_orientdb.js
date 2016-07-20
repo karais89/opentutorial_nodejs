@@ -7,6 +7,14 @@ var hasher = bkfd2Password();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var Oriento = require('oriento');
+var server = Oriento({
+  host: 'localhost',
+  port: 2424,
+  username: 'root',
+  password: '111111'
+});
+var db = server.use('o2');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -46,13 +54,21 @@ app.post('/auth/register', function(req, res) {
             salt:salt,
             displayName:req.body.displayName        
         };
-        users.push(user);
-        req.login(user, function(err) {
-            req.session.displayName = req.body.displayName;
-            req.session.save(function() {      
-                res.redirect('/welcome');      
-            }); 
+        var sql = "INSERT INTO user (authId, username, password, salt, displayName) VALUES(:authId, :username, :password, :salt, :displayName)";
+        db.query(sql, {
+            params: user
+        }).then(function(results) {
+            res.redirect('/welcome');
+        }, function(error) {
+            console.log(error);
+            res.status(500);
         });
+        // req.login(user, function(err) {
+        //     req.session.displayName = req.body.displayName;
+        //     req.session.save(function() {      
+        //         res.redirect('/welcome');      
+        //     }); 
+        // });
     });
 });
 app.get('/auth/register', function(req, res) {
