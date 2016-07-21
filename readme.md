@@ -1489,3 +1489,10 @@ CREATE TABLE users (
     UNIQUE (authId)
 ) ENGINE = InnoDB;
 ```
+
+#### Session store
+
+sessions 테이블에 정보가 저장됨.
+```
+SELECT * FROM sessions; 
+```
