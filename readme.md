@@ -1467,3 +1467,25 @@ new index -> authId -> unique 설정.
 
 #### federation auth (타사인증)
 
+
+### Auth - MySQL
+
+#### 소개
+
+메모리에 저장했던 데이터를 MySQL에 저장하는 작업을 할 것.
+
+일단 MySQL을 실행해야됨.
+
+```
+CREATE TABLE users ( 
+    id INT NOT NULL AUTO_INCREMENT , 
+    authId VARCHAR(50) NOT NULL ,
+    username VARCHAR(30), 
+    password VARCHAR(255), 
+    salt VARCHAR(255),
+    displayName VARCHAR(50),
+    email VARCHAR(50) NOT NULL , 
+    PRIMARY KEY (id), 
+    UNIQUE (authId)
+) ENGINE = InnoDB;
+```
