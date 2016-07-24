@@ -1512,3 +1512,19 @@ SELECT * FROM users \G
 ```
 ALTER TABLE users ADD email VARCHAR(50);
 ```
+
+### 정리정돈의 기술
+
+분 수업의 하위 수업에서는 코드를 잘 정리 정돈하는 기술을 다룹니다.
+
+#### jade - extends
+
+http://jade-lang.com/reference/extends/
+
+jade의 기능중 상속이란 좋은 기능이 있음.
+
+우리의 add, view 는 다른 부분이 있고 같은 부분이 있다.
+
+동일한 부분이 있음 다시 말해서 중복이 발생함.
+
+중복을 해결할 여러가지 방법중 하나가 jade의 상속이다.
