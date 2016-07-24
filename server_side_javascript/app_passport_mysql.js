@@ -63,16 +63,16 @@ app.post('/auth/register', function(req, res) {
                 console.log(err);
                 res.status(500);
             }else {
-                res.redirect('/welcome'); 
+                req.login(user, function(err) {
+                    req.session.displayName = req.body.displayName;
+                    req.session.save(function() {      
+                        res.redirect('/welcome');      
+                    }); 
+                });
             }
         });
 
-        // req.login(user, function(err) {
-        //     req.session.displayName = req.body.displayName;
-        //     req.session.save(function() {      
-        //         res.redirect('/welcome');      
-        //     }); 
-        // });
+
     });
 });
 app.get('/auth/register', function(req, res) {
@@ -123,32 +123,36 @@ passport.serializeUser(function(user, done) {
 });
 passport.deserializeUser(function(id, done) {
     console.log('deserializeUser', id);
-    for(var i=0; i<users.length; i++) {
-        var user = users[i];
-        if(user.authId == id) {
-            return done(null, user);
-        }
-    }
-    done('There is no user.');
+    var sql = 'SELECT * FROM users WHERE authId=?';
+    conn.query(sql, [id], function(err, results) {
+        if(err) {
+            console.log(err);
+            done('There is no users.');
+        }else {
+            done(null, results[0]);
+        }    
+    });
 });
 passport.use(new LocalStrategy(
     function(username, password, done) {
         var uname = username;
         var pwd = password;
-        for(var i=0; i<users.length; i++) {
-            var user = users[i];
-            if(uname == user.username) {
-                return hasher({password:pwd, salt:user.salt}, function(err, pass, salt, hash) {
-                    if(hash == user.password) {
-                        console.log('LocalStrategy', user);
-                        done(null, user);
-                    }else {
-                        done(null, false);
-                    }
-                });
+        var sql = 'SELECT * FROM users WHERE authId=?';
+        conn.query(sql, ['local:'+uname], function(err, results) {
+            console.log(results);
+            if(err) {
+                return done('There is no user');
             }
-        }    
-        done(null, false);
+            var user = results[0];
+            return hasher({password:pwd, salt:user.salt}, function(err, pass, salt, hash) {
+                if(hash == user.password) {
+                    console.log('LocalStrategy', user);
+                    done(null, user);
+                }else {
+                    done(null, false);
+                }
+            });            
+        });       
     }
 ));
 passport.use(new FacebookStrategy({
