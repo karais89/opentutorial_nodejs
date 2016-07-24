@@ -1500,3 +1500,7 @@ SELECT * FROM sessions;
 #### Register (회원가입)
 
 추가 -> 로그인 순서
+
+```
+SELECT * FROM users \G
+```
