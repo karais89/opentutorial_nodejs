@@ -1572,3 +1572,21 @@ p1 안에서 만들어진 변수나 함수는 p1을 사용하고 있는 app_rout
 하지만 그거은 한편으로 불편함을 줄 수도 있다.
 
 p1의 exports 부분을 함수로 고치고 app을 주입하는 방식으로 app_routes의 app을 사용할 수 있다.
+
+#### 글작성 + 인증 (CRUD + Auth) - MYSQL 1
+
+순서
+
+인증과 관련된 작업 app_passport_mysql.js 복잡도를 낮추고
+
+마찬가지 방법으로 crud에 해당되는 app_mysql.js도 복잡도를 낮추고
+
+app_passport_mysql의 파일들을 app_mysql로 합치는 작업을 진행할 예정.
+
+그래야 덜 복잡하고 오류가 밣생할 확률이 낮아짐.
+
+이 과정에서 여러분은 소스코드의 복잡돌르 낮추는 것으로 인해 다른 소스를 합치는것이 얼마나 수월해지는가에 주목.
+
+html을 문법을 jade 문법으로 변경 
+
+[html to jade](http://html2jade.org/)
