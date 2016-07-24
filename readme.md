@@ -1590,3 +1590,19 @@ app_passport_mysql의 파일들을 app_mysql로 합치는 작업을 진행할 �
 html을 문법을 jade 문법으로 변경 
 
 [html to jade](http://html2jade.org/)
+
+#### 글작성 + 인증 (CRUD + Auth) - MYSQL 2
+
+라우트 분할 작업
+
+#### 글작성 + 인증 (CRUD + Auth) - MYSQL 3(Auto config)
+
+선택 mysql을 주입하던지 별도로 빼서 require 할지.
+
+supervisor는 모든 자바스크립트를 와칭하지만 파일을 새로 추가하는 경우에는 그 파일을 알수 없으므로
+
+껏다 켜야됨.
+
+순서도 상당히 중요함.
+
+뒤로 갈수록 정리정돈을 잘하는 방법을 체득해야 됨.
