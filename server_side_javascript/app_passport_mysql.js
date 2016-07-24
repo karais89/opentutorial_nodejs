@@ -39,15 +39,6 @@ app.get('/count', function(req, res) {
     }
     res.send('count : ' + req.session.count);
 });
-var users = [
-    {
-        authId:'local:egoing',
-        username:'egoing',
-        password:'Xa91Q+CEiTIfYMi79r6u/747LPCaEWuEhJIT1pDtEk/jUwORbZQJjoS7M+haevryym92UX4IP+hzS+ifIYbi3+w0h+tQC3SV+N+26uRnGzemkbTTJOZmNPohntYtkL0m/u99+ApysDVOXlHIo8MD9cUYtf3eawicBIWeSP+nIIg=',
-        salt:'1waYPxoH4MIU4qYFGFEmUM0Hd6NOhE2njR52PNAdmzbnYHU6K/pOwDpSsHu+x4CHjl8tWngurRMl3NVfkZQXFA==',
-        displayName:'Egoing'
-    }
-];
 app.post('/auth/register', function(req, res) {
     hasher({password:req.body.password}, function(err, pass, salt, hash) {    
         var user = {
@@ -165,19 +156,27 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
       console.log(profile);
       var authId = 'facebook:'+profile.id;
-      for(var i=0; i < users.length; i++) {
-          var user = users[i];
-          if(user.authId === authId) {
-              return done(null, user);
+      var sql = 'SELECT * FROM users WHERE authId=?';
+      conn.query(sql, [authId], function(err, results) {
+          if(results.length > 0) {
+              done(null, results[0]);
+          }else {
+              var sql = 'INSERT INTO users SET ?';
+              var newuser = {
+                authId: authId,
+                displayName : profile.displayName,
+                email:profile.emails[0].value
+              }
+              conn.query(sql, newuser, function(err, results) {
+                if(err) {
+                    console.log(err);
+                    done('Error');
+                }else {
+                    done(null, newuser);
+                }
+              });
           }
-      }
-      var newuser = {
-          authId: authId,
-          displayName : profile.displayName,
-          email:profile.emails[0].value
-      }
-      users.push(newuser);
-      done(null, newuser);
+      });
   }
 ));
 app.post(

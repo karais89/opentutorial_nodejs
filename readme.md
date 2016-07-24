@@ -1507,3 +1507,8 @@ SELECT * FROM users \G
 
 #### Login
 
+#### Federation Authentication (타사인증)
+
+```
+ALTER TABLE users ADD email VARCHAR(50);
+```
