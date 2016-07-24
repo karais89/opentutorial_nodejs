@@ -7,6 +7,14 @@ var hasher = bkfd2Password();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var mysql      = require('mysql');
+var conn = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '111111',
+  database : 'o2'
+});
+conn.connect();
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -42,7 +50,6 @@ var users = [
 ];
 app.post('/auth/register', function(req, res) {
     hasher({password:req.body.password}, function(err, pass, salt, hash) {    
-        console.log(err, pass, salt, hash);
         var user = {
             authId:'local:' + req.body.username,
             username:req.body.username,            
@@ -50,13 +57,22 @@ app.post('/auth/register', function(req, res) {
             salt:salt,
             displayName:req.body.displayName        
         };
-        users.push(user);
-        req.login(user, function(err) {
-            req.session.displayName = req.body.displayName;
-            req.session.save(function() {      
-                res.redirect('/welcome');      
-            }); 
+        var sql = 'INSERT INTO users SET ?';
+        conn.query(sql, user, function(err, results) {
+            if(err) {
+                console.log(err);
+                res.status(500);
+            }else {
+                res.redirect('/welcome'); 
+            }
         });
+
+        // req.login(user, function(err) {
+        //     req.session.displayName = req.body.displayName;
+        //     req.session.save(function() {      
+        //         res.redirect('/welcome');      
+        //     }); 
+        // });
     });
 });
 app.get('/auth/register', function(req, res) {

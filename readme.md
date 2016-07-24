@@ -1496,3 +1496,7 @@ sessions 테이블에 정보가 저장됨.
 ```
 SELECT * FROM sessions; 
 ```
+
+#### Register (회원가입)
+
+추가 -> 로그인 순서
