@@ -1561,3 +1561,5 @@ jade의 기능중 상속이란 좋은 기능이 있음.
 
 원리를 몰라도 우리는 어떤 패턴을 발견할 수 있는 능력은 있기 때문에.. 이렇게 하면 이렇게 되는구나 하는 느낌으로 따라오면 됨.
 
+http://expressjs.com/en/guide/using-middleware.html
+
