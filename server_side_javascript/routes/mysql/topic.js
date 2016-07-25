@@ -8,7 +8,7 @@ module.exports = function() {
                 console.log(err);
                 res.status(500).send('Internal Server Error');
             }
-            res.render('topic/add', {topics:topics});
+            res.render('topic/add', {topics:topics, user:req.user});
         });
     });
     route.post('/add', function(req, res) {
@@ -36,7 +36,7 @@ module.exports = function() {
                         console.log(err);
                         res.status(500).send('Internal Server Error');
                     }else {
-                        res.render('topic/edit', {topics:topics, topic:topic[0]});
+                        res.render('topic/edit', {topics:topics, topic:topic[0], user:req.user});
                     }
                 });
             }else {
@@ -74,7 +74,7 @@ module.exports = function() {
                         console.log('There is no record.');
                         res.status(500).send('Internal Server Error');
                     }else {
-                        res.render('topic/delete', {topics:topics, topic:topic[0]});                
+                        res.render('topic/delete', {topics:topics, topic:topic[0], user:req.user});                
                     }
                 }
             });
@@ -98,11 +98,11 @@ module.exports = function() {
                         console.log(err);
                         res.status(500).send('Internal Server Error');
                     }else {
-                        res.render('topic/view', {topics:topics, topic:topic[0]});
+                        res.render('topic/view', {topics:topics, topic:topic[0], user:req.user});
                     }
                 });
             }else {
-                res.render('topic/view', {topics:topics}); 
+                res.render('topic/view', {topics:topics, user:req.user}); 
             }    
         });    
     });
