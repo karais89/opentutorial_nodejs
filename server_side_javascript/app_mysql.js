@@ -24,10 +24,10 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.pretty = true;
 app.use('/user', express.static('uploads'));
-app.set('views', './views_mysql');
+app.set('views', './views/mysql');
 app.set('view engine', 'jade');
 app.get('/upload', function(req, res) {
-    res.render('upload');
+    res.render('topic/upload');
 });
 app.post('/upload', upload.single('userfile'), function(req, res) {
     console.log(req.file);
@@ -40,7 +40,7 @@ app.get('/topic/add', function(req, res) {
             console.log(err);
             res.status(500).send('Internal Server Error');
         }
-        res.render('add', {topics:topics});
+        res.render('topic/add', {topics:topics});
     });
 });
 app.post('/topic/add', function(req, res) {
@@ -68,7 +68,7 @@ app.get(['/topic/:id/edit'], function (req, res) {
                     console.log(err);
                     res.status(500).send('Internal Server Error');
                 }else {
-                    res.render('edit', {topics:topics, topic:topic[0]});
+                    res.render('topic/edit', {topics:topics, topic:topic[0]});
                 }
             });
         }else {
@@ -106,7 +106,7 @@ app.get('/topic/:id/delete', function (req, res) {
                     console.log('There is no record.');
                     res.status(500).send('Internal Server Error');
                 }else {
-                    res.render('delete', {topics:topics, topic:topic[0]});                
+                    res.render('topic/delete', {topics:topics, topic:topic[0]});                
                 }
             }
         });
@@ -130,11 +130,11 @@ app.get(['/topic', '/topic/:id'], function (req, res) {
                     console.log(err);
                     res.status(500).send('Internal Server Error');
                 }else {
-                    res.render('view', {topics:topics, topic:topic[0]});
+                    res.render('topic/view', {topics:topics, topic:topic[0]});
                 }
             });
         }else {
-            res.render('view', {topics:topics}); 
+            res.render('topic/view', {topics:topics}); 
         }    
     });    
 });
